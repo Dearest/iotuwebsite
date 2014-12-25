@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.iotu.model">
+    <class name="Collect" table="collect" catalog="iotu">
+        <id name="collectId" type="java.lang.Integer">
+            <column name="collectId" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="user" class="User" fetch="select">
+            <column name="user_userId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="content" class="Content" fetch="select">
+            <column name="content_contentId" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

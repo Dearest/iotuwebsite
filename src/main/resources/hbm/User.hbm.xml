@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.iotu.model">
+    <class name="User" table="user" catalog="iotu">
+        <id name="userId" type="java.lang.Integer">
+            <column name="userId" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="45" not-null="true" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="300" not-null="true" />
+        </property>
+        <property name="salt" type="java.lang.String">
+            <column name="salt" length="300" not-null="true" />
+        </property>
+        <property name="token" type="java.lang.String">
+            <column name="token" length="45" not-null="true" />
+        </property>
+        <property name="role" type="java.lang.Integer">
+            <column name="role" not-null="true" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" length="45" />
+        </property>
+        <property name="picture" type="java.lang.String">
+            <column name="picture" />
+        </property>
+        <set name="pictures" inverse="true">
+            <key>
+                <column name="user_userId" not-null="true" />
+            </key>
+            <one-to-many class="Picture" />
+        </set>
+        <set name="contents" inverse="true">
+            <key>
+                <column name="user_userId" not-null="true" />
+            </key>
+            <one-to-many class="Content" />
+        </set>
+        <set name="collects" inverse="true">
+            <key>
+                <column name="user_userId" not-null="true" />
+            </key>
+            <one-to-many class="Collect" />
+        </set>
+        <set name="chats" inverse="true">
+            <key>
+                <column name="user_userId" not-null="true" />
+            </key>
+            <one-to-many class="Chat" />
+        </set>
+    </class>
+</hibernate-mapping>

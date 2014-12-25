@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.iotu.model">
+    <class name="Present" table="present" catalog="iotu">
+        <id name="presentId" type="java.lang.Integer">
+            <column name="presentId" />
+            <generator class="native" />
+        </id>
+        <property name="content" type="java.lang.String">
+            <column name="content" length="2000" not-null="true" />
+        </property>
+        <property name="position" type="java.lang.Integer">
+            <column name="position" not-null="true" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
