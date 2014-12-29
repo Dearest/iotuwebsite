@@ -23,8 +23,8 @@
         <property name="time" type="java.sql.Timestamp">
             <column name="time" length="19" not-null="true" />
         </property>
-        <property name="content_1" type="java.lang.String">
-            <column name="content" length="20000" not-null="true" />
+        <property name="commentary" type="java.lang.String">
+            <column name="commentary" length="20000" not-null="true" />
         </property>
         <property name="isRecomment" type="java.lang.Integer">
             <column name="isRecomment" not-null="true" />

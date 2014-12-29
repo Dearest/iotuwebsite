@@ -8,7 +8,7 @@
             <column name="chatId" />
             <generator class="native" />
         </id>
-        <many-to-one name="user" class="com.test.model.User" fetch="select">
+        <many-to-one name="user" class="User" fetch="select">
             <column name="user_userId" not-null="true" />
         </many-to-one>
         <property name="content" type="java.lang.String">

@@ -1,5 +1,6 @@
 package com.iotu.model;
 
+import java.util.Date;
 import java.util.Set;
 
 
@@ -12,8 +13,10 @@ public class Content implements java.io.Serializable {
 	private User user;
 	private String title;
 	private String content;
+	private Date time;
 	private Integer star;
 	private Integer collectNum;
+	private String author;
 	private Set<ContentHasType> contentHasTypes ;
 	private Set<Comment> comments ;
 	private Set<Collect> collects ;
@@ -117,6 +120,22 @@ public class Content implements java.io.Serializable {
 
 	public void setCollects(Set<Collect> collects) {
 		this.collects = collects;
+	}
+
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 }

@@ -26,9 +26,6 @@
         <property name="email" type="java.lang.String">
             <column name="email" length="45" />
         </property>
-        <property name="picture" type="java.lang.String">
-            <column name="picture" />
-        </property>
         <set name="pictures" inverse="true">
             <key>
                 <column name="user_userId" not-null="true" />

@@ -21,7 +21,7 @@ public class Comment implements java.io.Serializable {
 	private String fromUser;
 	private String toUser;
 	private Date time;
-	private String content_1;
+	private String commentary;
 	private Integer isRecomment;
 	private Integer recommentId;
 
@@ -76,12 +76,12 @@ public class Comment implements java.io.Serializable {
 
 
 
-	public String getContent_1() {
-		return this.content_1;
+	public String getCommentary() {
+		return this.commentary;
 	}
 
-	public void setContent_1(String content_1) {
-		this.content_1 = content_1;
+	public void setCommentary(String commentary) {
+		this.commentary = commentary;
 	}
 
 	public Integer getIsRecomment() {

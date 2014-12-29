@@ -4,5 +4,29 @@
 ]>
 
 
-<beans>	
+<beans>
+	<bean id="typeDao" class="com.iotu.dao.impl.TypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="contentDao" class="com.iotu.dao.impl.ContentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="contentService" class="com.iotu.service.impl.ContentServiceImpl">
+		<property name="contentDao" ref="contentDao"></property>
+		<property name="typeDao" ref="typeDao"></property>
+	</bean>
+	
+	<bean id="userDao" class="com.iotu.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userService" class="com.iotu.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<bean id="commentDao" class="com.iotu.dao.impl.CommentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="commentService" class="com.iotu.service.impl.CommentSerIveImpl">
+		<property name="commentDao" ref="commentDao"></property>
+	</bean>
 </beans>
