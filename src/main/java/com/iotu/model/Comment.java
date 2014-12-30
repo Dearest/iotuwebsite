@@ -15,15 +15,15 @@ public class Comment implements java.io.Serializable {
 
 	// Fields
 
-	private Integer commentId;
-	private Content content;
-	private Picture picture;
-	private String fromUser;
-	private String toUser;
-	private Date time;
-	private String commentary;
-	private Integer isRecomment;
-	private Integer recommentId;
+	private Integer commentId; //评论id
+	private Content content;   //外键 针对哪条博文的评论
+	private Picture picture;   //外键  针对哪张图片的评论
+	private String fromUser;    //评论人的昵称 若为游客则使用自己输入的昵称
+	private String toUser;     //被评论人的昵称
+	private Date time;         //发表评论的时间
+	private String commentary;  //评论的内容
+	private Integer isRecomment; //是否是对评论的回复  1是 0 后
+	private Integer recommentId; //若是对评论的回复 则recommentId是被回复的评论的id
 
 	// Constructors
 

@@ -24,7 +24,7 @@ public interface IContentDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public String saveContent(Content content) throws Exception;
+	public Content saveContent(Content content) throws Exception;
 	
 	/**
 	 * 删除博文

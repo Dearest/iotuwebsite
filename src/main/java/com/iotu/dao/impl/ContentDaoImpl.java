@@ -39,9 +39,9 @@ public class ContentDaoImpl implements IContentDao{
 				.setMaxResults(page.getPerPageNum()).list();
 	}
 
-	public String saveContent(Content content) throws Exception {
-		// TODO sql语句
-		return null;
+	public Content saveContent(Content content) throws Exception {
+		sessionFactory.getCurrentSession().save(content);
+		return  content;
 	}
 
 	public String delContent(Content content) throws Exception {

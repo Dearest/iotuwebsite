@@ -16,5 +16,5 @@ public interface IUserSerivce {
 	 * @return true存在  false 不存在
 	 * @throws Exception
 	 */
-	public Boolean findToken(String token) throws Exception;
+	public User findToken(String token) throws Exception;
 }

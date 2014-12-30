@@ -31,8 +31,12 @@ public class UserServiceImpl implements IUserSerivce {
 		return null;
 	}
 
-	public Boolean findToken(String token) throws Exception {
-		// TODO 待写
-		return null;
+	public User findToken(String token) throws Exception {
+		if(token != null && !"".equals(token.trim())){
+			return userDao.findUserByProperty("token", token);
+		}else {
+			return null;
+		}
+		
 	}
 }

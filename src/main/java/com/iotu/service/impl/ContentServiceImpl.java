@@ -35,7 +35,7 @@ public class ContentServiceImpl implements IContentService{
 		return list2;
 	}
 
-	public String saveContent(Content content) throws Exception {
+	public Content saveContent(Content content) throws Exception {
 		
 		return contentDao.saveContent(content);
 	}
