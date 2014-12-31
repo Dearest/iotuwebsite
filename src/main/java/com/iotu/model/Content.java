@@ -12,6 +12,7 @@ public class Content implements java.io.Serializable {
 	private Integer contentId;
 	private User user;
 	private String title;
+	private String summary;
 	private String content;
 	private Date time;
 	private Integer star;
@@ -28,10 +29,8 @@ public class Content implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Content(User user, String title, String content) {
-		this.user = user;
-		this.title = title;
-		this.content = content;
+	public Content(int contentId) {
+		this.contentId = contentId;
 	}
 
 	/** full constructor */
@@ -136,6 +135,14 @@ public class Content implements java.io.Serializable {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
 }

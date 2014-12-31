@@ -44,4 +44,10 @@ public class ContentServiceImpl implements IContentService{
 		
 		return null;
 	}
+
+	public Content findContentById(Content content) throws Exception {
+		Content findContent = contentDao.findContentById(content);
+		findContent.setUser(null);
+		return findContent;
+	}
 }

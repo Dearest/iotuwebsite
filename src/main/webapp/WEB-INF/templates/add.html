@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>IOTU 官方博客</title>
+             <meta name="description" content="IOTU官方网站 iotu IOTU官网 IOTU官方博客">
+        <meta name="viewport" content="width=device-width">
+        <#include "include/link_css.ftl" />
+        <#include "include/link_js.ftl" />
+        <#include "include/link_ue.ftl" />
+		<script src="${rc.contextPath}/js/add.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){	    
+			$("#blog").addClass("active");
+		});
+	</script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        
+
+        <!-- Navigation & Logo-->
+        	<#include "include/link_head.ftl" />
+
+        <!-- Page Title -->
+		<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>发布文章</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+					<div class="col-sm-2 ">
+						
+					</div>
+					<div class="col-sm-8">
+						<div class="blog-post blog-single-post">
+							<form action="save" method="POST" role="form">
+								<legend></legend>
+							
+								<div class="form-group">
+									<label for="">文章标题</label>
+									<input type="text" class="form-control" id="title" placeholder="请输入文章标题，不超过20个字符" required="required" name="title">
+									<span style="color: red" hidden id="titleError">文章内容是必填项</span>
+								</div>
+								<div class="form-group">
+									<label for="">文章摘要</label>
+									<input type="text" class="form-control" id="summary" placeholder="请输入文章摘要，不超过50个字符" required="required" name="summary">
+									<span style="color: red" hidden id="summaryError">文章内容是必填项</span>
+								</div>
+							<!--预留给type-->
+							<!--	<div class="form-group">
+									<label for="">label</label>
+									<input type="text" class="form-control" id="" placeholder="Input field">
+								</div>
+							-->
+								<div>
+									<span style="color: red" hidden id="contentError">文章内容是必填项</span>
+								</div>
+								<div >
+									 <script id="editor" type="text/plain" style="height:500px;"></script>
+									 <input type="text"  id="content" class="form-control" value="" hidden name="content">
+								</div>
+								<p></p>
+								<button type="submit" class="btn btn-primary" onclick="return save()">提交</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	    <!-- Footer -->
+	     <#include "include/link_footer.ftl" />
+			<#include "include/link_js.ftl" />
+		<script src="${rc.contextPath}/js/add.js"></script>
+    </body>
+</html>

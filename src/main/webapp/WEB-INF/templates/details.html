@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>IOTU官方博客</title>
+         <meta name="description" content="IOTU官方网站 iotu IOTU官网 IOTU官方博客">
+        <meta name="viewport" content="width=device-width">
+
+       	<#include "include/link_css.ftl" />
+        <#include "include/link_js.ftl" />
+        <script src="${rc.contextPath}/js/details.js"></script>
+       <script type="text/javascript">
+		$(document).ready(function(){	    
+			$("#blog").addClass("active");
+		});
+	</script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        
+
+        <!-- Navigation & Logo-->
+        	<#include "include/link_head.ftl" />
+
+  
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+					<!-- Blog Post -->
+					<div class="col-sm-8">
+						<div class="blog-post blog-single-post">
+							<div class="single-post-title">
+								<h3>${content.title}</h3>
+							</div>
+							<div class="single-post-info">
+								<i class="glyphicon glyphicon-time"></i>${content.time?date} <a href="#" title="喜欢">
+								<i class="glyphicon glyphicon-heart"></i>${content.star}</a>
+							</div>
+							
+							<div class="single-post-content">
+								${content.content}
+							</div>
+							<input type="text" id="contentId" value="${content.contentId}"  hidden>
+
+							<input type="text" id="toUser" value="${content.author!'admin'}" hidden>
+							<div class="row">
+								<div class="col-sm-8 ">
+									<div class="btn-group pull-right" >
+									<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-heart"></i>&nbsp;赞一个</button>
+									
+									<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>&nbsp;不喜欢</button>
+
+									</div>
+								</div>
+							</div>
+
+							<!-- Comments -->
+							<div class="post-coments">
+								<h4>评论数 (${content.comments?size})</h4>
+								<ul class="post-comments">
+									<#list content.comments?sort_by("time")?reverse as c>
+									<#if c.isRecomment == 0>
+									<li>
+										<div class="comment-wrapper">
+											<div class="comment-author" id="commentauthor${c.commentId}">${c.fromUser}</div>
+											<p>
+												@<a>${c.toUser}</a> &nbsp;&nbsp;${c.commentary}
+											</p>
+											<!-- Comment Controls -->
+											<div class="comment-actions">
+												<span class="comment-date">${c.time?datetime}</span>
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse${c.commentId}" aria-expanded="false" aria-controls="collapseTwo"><i class="glyphicon glyphicon-share-alt"></i> 回复</a>
+											</div>
+											<div id="collapse${c.commentId}" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne">
+     								 			<div class="panel-body">
+										        <input type="text" id="recommentInput${c.commentId}" class="form-control" value="" required="required"   placeholder="请输入回复...">
+										       	
+										        <button type="button" class="btn btn-sm btn-primary pull-right" style="margin-top: 4px" onclick="recomment(${c.commentId})">提交</button>
+												</div>
+											</div>
+										</div>
+									</li>
+									<#else>
+									<li>
+										<ul>
+											<li>
+												<div class="comment-wrapper">
+													<div class="comment-author">${c.fromUser}</div>
+													<p>
+														@<a>${c.toUser}</a>&nbsp; ${c.commentary}
+													</p>
+													<!-- Comment Controls -->
+													<div class="comment-actions">
+														<span class="comment-date">${c.time?datetime}</span>
+														
+														
+													</div>
+												</div>
+											</li>
+										</ul>
+									</li>
+									</#if>
+									</#list>
+								</ul>
+								<!-- Pagination -->
+								<div class="pagination-wrapper ">
+									<ul class="pagination pagination-sm">
+										
+									</ul>
+								</div>
+								<!-- Comments Form -->
+								<h4>评论</h4>
+								<div class="comment-form-wrapper">
+									<form class="">
+				        				<div class="form-group">
+				        				 	<label for="comment-name"><i class="glyphicon glyphicon-user"></i> <b>你的昵称</b></label>
+											<input class="form-control" id="fromUser" type="text" placeholder="">
+										</div>
+										
+										<div class="form-group">
+											<label for="comment-message"><i class="glyphicon glyphicon-comment"></i> <b>内容</b></label>
+											<textarea class="form-control" rows="5" id="commentary"></textarea>
+										</div>
+										<div class="form-group">
+											<button type="submit" class="btn btn-large pull-right" onclick="comment()">发表</button>
+										</div>
+										<div class="clearfix"></div>
+				        			</form>
+								</div>
+								<!-- End Comment Form -->
+							</div>
+							<!-- End Comments -->
+						</div>
+					</div>
+					<!-- End Blog Post -->
+					<!-- Sidebar -->
+					<div class="col-sm-4 blog-sidebar">
+						<h4>搜索文章</h4>
+						<form>
+							<div class="input-group">
+								<input class="form-control input-md" id="appendedInputButtons" type="text">
+								<span class="input-group-btn">
+									<button class="btn btn-md" type="button">Search</button>
+								</span>
+							</div>
+						</form>
+						<h4>置顶的文章</h4>
+						<ul class="recent-posts">
+							<li><a href="#">Lorem ipsum dolor sit amet</a></li>
+							<li><a href="#">Sed sit amet metus sit</a></li>
+							<li><a href="#">Nunc et diam volutpat tellus ultrices</a></li>
+							<li><a href="#">Quisque sollicitudin cursus felis</a></li>
+						</ul>
+						<h4>最受欢迎的文章</h4>
+						<ul class="blog-categories">
+							<li><a href="#">Lorem ipsum</a></li>
+							<li><a href="#">Sed sit amet metus</a></li>
+							<li><a href="#">Nunc et diam </a></li>
+							<li><a href="#">Quisque</a></li>
+						</ul>
+						
+					</div>
+					<!-- End Sidebar -->
+				</div>
+			</div>
+	    </div>
+
+	    <!-- Footer -->
+	 <#include "include/link_footer.ftl" />
+
+       
+
+    </body>
+</html>

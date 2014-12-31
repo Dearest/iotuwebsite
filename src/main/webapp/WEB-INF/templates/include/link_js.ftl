@@ -1,0 +1,11 @@
+<script src="${rc.contextPath}/js/jquery.min.js"></script>
+<script src="${rc.contextPath}/js/bootstrap.min.js"></script>
+<script src="${rc.contextPath}/js/jquery.fitvids.js"></script>
+<script src="${rc.contextPath}/js/jquery.sequence-min.js"></script>
+<script src="${rc.contextPath}/js/jquery.bxslider.js"></script>
+<script src="${rc.contextPath}/js/main-menu.js"></script>
+<script src="${rc.contextPath}/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script src="${rc.contextPath}/js/template.js"></script>
+<script src="${rc.contextPath}/js/icheck.min.js"></script>
+<script src="${rc.contextPath}/js/sco.message.js"></script>
+<script src="${rc.contextPath}/js/sco.tooltip.js"></script>

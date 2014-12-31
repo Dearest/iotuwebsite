@@ -32,4 +32,11 @@ public interface IContentService {
 	 * @throws Exception
 	 */
 	public String delContent(Content content) throws Exception;
+	
+	/**
+	 * 以Id查找content
+	 * @return
+	 * @throws Exception
+	 */
+	public Content findContentById(Content content) throws Exception;
 }

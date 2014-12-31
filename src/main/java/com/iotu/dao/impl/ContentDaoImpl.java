@@ -49,22 +49,9 @@ public class ContentDaoImpl implements IContentDao{
 		return null;
 	}
 	
-	/**
-	 * 生成查询条件的HQL语句
-	 * 
-	 * @param searchParams
-	 * @return
-	 */
-	private String getSearchCondition(SearchParams searchParams) {
-		String searchHql = "";
-
-	
-		if (!StringUtils.empty(searchParams.getSearchKey())) {
-			searchHql += " AND c.title LIKE '%" + searchParams.getSearchKey()
-					+ "%' ";
-		}
-
-		return searchHql;
+	public Content findContentById(Content content) throws Exception {
+		
+		return (Content) sessionFactory.getCurrentSession().createQuery("FROM Content c WHERE c.contentId = :id").setInteger("id", content.getContentId()).uniqueResult();
 	}
 
 

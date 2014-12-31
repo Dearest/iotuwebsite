@@ -41,9 +41,9 @@ public class SystemConstant {
 	public static final String LOGINERROR = "loginError";
 
 	/**
-	 * 每页显示数据量定义 10
+	 * 每页显示数据量定义 6
 	 */
-	public static final int PER_PAGE_NUM = 10;
+	public static final int PER_PAGE_NUM = 6;
 
 	/**
 	 * 单位页面数据量定义 5
